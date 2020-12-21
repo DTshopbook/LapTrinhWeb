@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Total";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+}
+
+<div class="main_container">
+    @{Html.RenderAction("LeftMenu", "Home"); }
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <h4>Tổng số sản phẩm bán được: @ViewBag.TotalAmount </h4>
+                    <br />
+                    <h4>Tổng số tiền bán được:@ViewBag.TotalMoney đồng</h4>
+                    <br />
+                    <h4>Tổng số khách hàng: @ViewBag.TotalCus</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script><!-- /.panel-body -->
+    <!-- /page content -->
+    <script src="~/Areas/Admin/Content/build/js/Chart/jquery.canvasjs.min.js"></script>
+    <script src="~/Areas/Admin/Content/build/js/Chart/Char.js"></script>
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Admin - DTShopBook
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+</div>
+

@@ -1,0 +1,27 @@
+﻿@model List<Model.EF.Category>
+
+<div class="col-sm-3">
+    <div class="left-sidebar">
+        <h2>DANH MỤC </h2>
+        <div class="panel-group category-products" id="accordian">
+            <!--category-productsr-->           
+            <div class="panel panel-default">
+                @foreach (var item in Model)
+                {
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a href="/Category/@item.CategoryID">
+                                <span class="badge pull-right"><i></i></span>
+                                @item.CategoryName
+                            </a>
+                        </h4>
+                    </div>
+                }
+            </div>
+        </div><!--/category-products-->
+        <div class="shipping text-center">
+            <!--shipping-->
+            <img src="~/Content/images/product/STN_TV012.jpg" alt="" />
+        </div><!--/shipping-->
+</div>
+</div>

@@ -1,0 +1,25 @@
+﻿@model List<Model.EF.Menu>
+
+<div class="mainmenu pull-left">
+    <ul class="nav navbar-nav collapse navbar-collapse">
+        @{
+            var session = (UserLogin)Session[ShopBook3.Common.Constant.USER_SESSION];
+        }
+        @if (session == null)
+        {
+            foreach (var item in Model)
+            {
+                <li><a href="@item.Link" target="@item.Target">@item.Content</a></li>
+            }
+        }
+        else
+        {
+            foreach (var item in Model.Where(x=>x.Content != "Đăng nhập"))
+            {
+                <li><a href="@item.Link" target="@item.Target">@item.Content</a></li>
+            }
+            <li><a>Xin chào @session.Username !</a></li>
+            <li>@Html.ActionLink("Đăng xuất", "Logout", "User")</li>
+        }
+    </ul>
+</div>

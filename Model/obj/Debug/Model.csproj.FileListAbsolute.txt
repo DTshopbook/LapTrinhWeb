@@ -1,0 +1,16 @@
+F:\Do_An_Web\ShopBook3\Model\obj\Debug\Model.csprojAssemblyReference.cache
+F:\Do_An_Web\ShopBook3\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\Model.dll.config
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\Model.dll
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\Model.pdb
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\EntityFramework.dll
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\EntityFramework.SqlServer.dll
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\EntityFramework.xml
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\EntityFramework.SqlServer.xml
+F:\Do_An_Web\ShopBook3\Model\obj\Debug\Model.csproj.CopyComplete
+F:\Do_An_Web\ShopBook3\Model\obj\Debug\Model.dll
+F:\Do_An_Web\ShopBook3\Model\obj\Debug\Model.pdb
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\PagedList.dll
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\PagedList.Mvc.dll
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\PagedList.xml
+F:\Do_An_Web\ShopBook3\Model\bin\Debug\PagedList.Mvc.xml

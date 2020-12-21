@@ -1,0 +1,68 @@
+﻿@model ShopBook3.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="form">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="login_wrapper">
+                <div class="animate form login_form">                    
+                    <section class="login_content">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken();
+                                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                <h2 class="title text-center">ĐĂNG KÝ</h2>
+                                <hr />
+                                <div class="form-group">
+                                    @if (ViewBag.Success != null)
+                                    {
+                                        <div class="alert alert-success">@ViewBag.Success</div>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên đăng nhập</label>
+                                    @*@Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })*@
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Mật khẩu</label>
+                                    @*@Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })*@
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Nhập lại mật khẩu</label>
+                                    @*@Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label col-md-4" })*@
+                                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <div class=" col-md-10">
+                                        <input type="submit" value="ĐĂNG KÝ" class="btn btn-primary" />
+                                        <h5>
+                                            Nếu đã có tài khoản ?
+                                            <a href="~/User/Login"> ĐĂNG NHẬP TẠI ĐÂY !</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <p>@ViewBag.error</p>
+                            }
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
