@@ -1,0 +1,51 @@
+﻿@model List<Model.EF.InfoWebsite>
+
+<footer id="footer">
+    <!--Footer-->
+    <div class="footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Dịch vụ</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="~/Home/TermOfUse">Điều khoản sử dụng</a></li>
+                            <li><a href="~/Home/Policy">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="single-widget">
+                        <h2>Hỗ trợ</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="~/Home/Ex_Re">Chính sách đổi trả </a></li>
+                            <li><a href="~/Home/Delivery">Phương thức vận chuyển</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="single-widget">
+                        <h2>Liên hệ</h2>
+                        <ul class="nav nav-pills nav-stacked">
+                            @foreach (var item in Model)
+                            {
+                                <li><a>Địa chỉ: @item.WebAddress </a></li>
+                                <li><a>Điện thoại: @item.WebPhone</a></li>
+                                <li><a>Email: @item.WebEmail</a></li>
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left">Copyright © 2020 E-SHOP Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+</footer><!--/Footer-->

@@ -1,0 +1,89 @@
+﻿
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>ShopBook Admin!</span></a>
+        </div>
+        <div class="clearfix"></div>
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+            <div class="profile_pic">
+                <img src="~/Areas/Admin/Content/images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Xin chào,</span>
+                <h2>Admin !</h2>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+        <br />
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>KHÁI QUÁT CHUNG</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-home"></i>Trang chủ<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/Admin/Home/Total">Thống kê</a></li>
+                            @*<li><a href="~/Admin/Home/ChartOfOrder">Biểu đồ</a></li>*@
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-product-hunt"></i>Sản phẩm<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/Admin/Product/Index">Danh sách sản phẩm</a></li>
+                            <li><a href="~/Admin/Product/CreateProduct">Thêm sản phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-windows"></i> Người dùng <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/Admin/User/Index">Danh sách người dùng</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-desktop"></i> Danh mục <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/Admin/Category/Index">Danh sách danh mục</a></li>
+                            <li><a href="~/Admin/Category/CreateCate">Thêm danh mục</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-first-order"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/Admin/Order">Danh sách đơn hàng</a></li>
+                            <li><a href="~/Admin/OrderDetail">Chi tiết đơn hàng</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/Admin/InfoWeb/Index"><i class="fa fa-wechat"></i> Thông tin Website</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /sidebar menu -->
+    </div>
+</div>
+<!-- top navigation -->
+<div class="top_nav">
+    <div class="nav_menu">
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="~/Areas/Admin/Content/images/img.jpg" alt="">Admin
+                        <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a href="~/Admin/Login/Index"><i class="fa fa-sign-out pull-right"></i>Đăng xuất !</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- /top navigation -->

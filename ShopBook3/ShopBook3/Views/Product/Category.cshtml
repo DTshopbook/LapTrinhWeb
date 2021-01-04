@@ -1,0 +1,50 @@
+﻿@model Model.EF.Category
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cate = (List<Model.EF.Product>)ViewBag.CateID;
+
+}
+
+@{Html.RenderAction("Slider", "Home"); }
+<section>
+    <div class="container">
+        <div class="row">
+            @{Html.RenderAction("CateProduct", "Product"); }
+            <!--All product-->
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">@Model.CategoryName</h2>
+                    @if (cate.Count > 0)
+                    {
+                        foreach (var item in cate)
+                        {
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <a href="/product/Detail/@item.ProductID"><img src="~/Content/images/product/@item.ImageID" alt="" /></a>
+                                            <h4>@item.NameBook</h4>
+                                            <h3>@item.Price.GetValueOrDefault(0).ToString("N0") đ</h3>
+                                            <a href="/product/Detail/@item.ProductID" class="btn btn-default add-to-cart"><i class="fa fa-product-hunt"></i>CHI TIẾT</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }                       
+                    }
+                    else
+                    {
+                        <h3 class="text-center">Sản phẩm thuộc danh mục này đã bán hết ! Vui lòng chọn danh mục khác !</h3>
+                    }
+                </div><!--features_items-->
+            </div>
+            <!--/All product-->
+        </div>
+    </div>
+</section>
+
+
+

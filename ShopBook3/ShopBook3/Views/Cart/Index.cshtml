@@ -1,0 +1,58 @@
+﻿@model List<ShopBook3.Models.CartProduct>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/css/sweetalert.css">
+@section jsCart{
+    <script src="~/Content/js/controller/Cart.js"></script>
+}
+<section>
+    <div class="container">
+        <div class="row">
+            <h2 class="title text-center">CHI TIẾT GIỎ HÀNG</h2>
+            @if (Model.Count > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>MÃ SÁCH</td>
+                            <td>TÊN SÁCH</td>
+                            <td>ẢNH</td>
+                            <td>SỐ LƯỢNG</td>
+                            <td>TỔNG GIÁ</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>@item.Product.ProductID</td>
+                                <td>@item.Product.NameBook</td>
+                                <td><img src="~/Content/images/product/@item.Product.ImageID" width="100" /></td>
+                                <td><input type="number" class="txtAmount" data-id="@item.Product.ProductID" value="@item.Amount" min="1" max="@item.Product.Amount" /></td>
+                                <td>@((item.Product.Price.GetValueOrDefault(0) * item.Amount).ToString("N0")) đ</td>
+                                <td>
+                                    <a href="#" data-id="@item.Product.ProductID" class="btn-delete">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button id="btnContinue" class="btn">Tiếp tục mua sắm</button>
+                <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                <button id="btnDeleteCart" class="btn">Xóa giỏ hàng</button>
+                <button id="btnPayment" class="btn">Thanh toán</button>
+            }
+            else
+            {
+                <h4 class="text-center">GIỎ HÀNG TRỐNG!</h4>
+            }
+        </div>
+    </div>
+</section>
+

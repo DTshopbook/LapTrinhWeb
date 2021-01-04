@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "ChartOfOrder";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer1", {
+	        animationEnabled: true,
+	        theme: "light2", // "light1", "light2", "dark1", "dark2"
+	        title: {
+		        text: "Số lượng sách bán được theo cuốn"
+	        },
+	        axisY: {
+		        title: "Số lượng"
+	        },
+            data: [{
+                type: "column",
+		        dataPoints: @Html.Raw(ViewBag.DataPoints)
+	        }]
+        });
+        chart.render();
+
+        }
+</script>
+
+<div class="main_container">
+    @{Html.RenderAction("LeftMenu", "Home"); }
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script><!-- /.panel-body -->
+    <!-- /page content -->
+    <script src="~/Areas/Admin/Content/build/js/Chart/jquery.canvasjs.min.js"></script>
+    <script src="~/Areas/Admin/Content/build/js/Chart/Char.js"></script>
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Admin - DTShopBook
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+</div>
+

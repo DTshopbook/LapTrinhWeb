@@ -1,0 +1,68 @@
+﻿@model ShopBook3.Areas.Admin.Models.LoginModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Login Admin </title>
+    <!-- Bootstrap -->
+    <link href="~/Areas/Admin/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Areas/Admin/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="~/Areas/Admin/Content/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    @*<link href="~/Areas/Admin/Content/build/css/custom.min.css" rel="stylesheet">*@
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div>
+                <a class="hiddenanchor" id="signup"></a>
+                <a class="hiddenanchor" id="signin"></a>
+                <div class="login_wrapper">
+                    <div class="animate form login_form">
+                        <section class="login_content">
+                            @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                            {
+                                <h1>Please Login</h1>
+                                <div>
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "Username", @autofocus = "autofocus" })
+                                </div>
+                                <div>
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password", @autofocus = "autofocus" })
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    @*<a class="reset_pass" href="#">Forgot your password?</a>*@
+                                </div>
+                                <div class="clearfix"></div>
+                                <p>@ViewBag.error</p>
+                            }
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- jQuery -->
+        <script src="~/Areas/Admin/Content/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="~/Areas/Admin/Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="~/Areas/Admin/Content/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="~/Areas/Admin/Content/vendors/nprogress/nprogress.js"></script>
+        <!-- Dropzone.js -->
+        <script src="~/Areas/Admin/Content/vendors/dropzone/dist/min/dropzone.min.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="~/Areas/Admin/Content/build/js/custom.min.js"></script>
+</body>
+</html>
+
+

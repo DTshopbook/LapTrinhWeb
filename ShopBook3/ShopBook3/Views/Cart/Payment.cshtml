@@ -1,0 +1,71 @@
+﻿@model List<ShopBook3.Models.CartProduct>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    
+    <div class="container">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <label>Tên người nhận</label>
+                    <input name="fullname" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input name="userphone" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ</label>
+                    <input name="useraddress" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input name="email" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">ĐẶT HÀNG</button>
+            }
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>MÃ SÁCH</td>
+                        <td>TÊN SÁCH</td>
+                        <td>ẢNH</td>
+                        <td>SỐ LƯỢNG</td>
+                        <td>TỔNG GIÁ</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {                        
+                        <tr>
+                            <td>@item.Product.ProductID</td>
+                            <td>@item.Product.NameBook</td>
+                            <td><img src="~/Content/images/product/@item.Product.ImageID" width="70" height="100" /></td>
+                            @*<td><input type="n" class="txtAmount" data-id="@item.Product.ProductID" value="@item.Amount" /></td>*@
+                            <td>@item.Amount</td>
+                            <td>@((item.Product.Price.GetValueOrDefault(0) * item.Amount).ToString("N0")) đ</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="4" class="cart_total_price">Thành tiền</td>
+                        <td>
+                            @{ 
+                                var total = String.Format("{0:N0}",Model.Sum(x => x.Amount * x.Product.Price));
+                            }
+                            @total đ
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+

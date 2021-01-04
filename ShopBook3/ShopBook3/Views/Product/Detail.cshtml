@@ -1,0 +1,98 @@
+﻿@model Model.EF.Product
+
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var cate = (Model.EF.Category)ViewBag.CateProduct;
+    var writer = (Model.EF.Writer)ViewBag.WriterPro;
+    var nxb = (Model.EF.Nxb)ViewBag.NxbPro;
+    var relatedpro = (List<Model.EF.Product>)ViewBag.RelatedPro;
+}
+<section>
+    <div class="container">
+        <div class="row">
+            @{Html.RenderAction("CateProduct", "Product"); }
+
+            <div class="col-sm-9 padding-right">
+                <div class="product-details">
+                    <h2 class="title text-center">CHI TIẾT</h2>
+                    <!--product-details-->
+                    <div class="col-sm-5">
+                        <div class="view-product">
+                            <img src="~/Content/images/product/@Model.ImageID" alt="@Model.NameBook" />
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="product-information">
+                            <!--/product-information-->
+                            <h2>@Model.NameBook</h2>
+                            <span>
+                                <span>@Model.Price.GetValueOrDefault(0).ToString("N0") đ</span>
+                                <a href="/add-to-cart?productID=@Model.ProductID&&amount=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>THÊM VÀO GIỎ</a>
+                            </span>
+                            <p><b>Tác giả:</b> @writer.WriterName</p>
+                            <p><b>Nhà xuất bản:</b> @nxb.NxbName</p>
+                            <p><b>Danh mục:</b> @cate.CategoryName</p>
+                        <p><b>Còn lại:</b>@Model.Amount</p>
+                            <p>
+                                <b>Tóm tắt: </b>
+                                @Model.Describe
+                            </p>
+                        </div><!--/product-information-->
+                    </div>
+                </div><!--/product-details-->                
+
+                <div class="recommended_items">
+                    <!--recommended_items-->
+                    <h2 class="title text-center">Sách Liên quan</h2>
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                @foreach (var item in relatedpro)
+                                {                                   
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <a href="/product/Detail/@item.ProductID"><img src="~/Content/images/product/@item.ImageID" alt="" /></a>
+                                                    <h4>@item.NameBook</h4>
+                                                    <h3>@item.Price.GetValueOrDefault(0).ToString("N0") đ</h3>
+                                                    <a href="/add-to-cart?productID=@item.ProductID&&amount=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>THÊM VÀO GIỎ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="item">
+                                @foreach (var item in relatedpro)
+                                {
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <a href="/product/Detail/@item.ProductID"><img src="~/Content/images/product/@item.ImageID" alt="" /></a>
+                                                    <h4>@item.NameBook</h4>
+                                                    <h3>@item.Price.GetValueOrDefault(0).ToString("N0") đ</h3>
+                                                    <a href="/add-to-cart?productID=@item.ProductID&&amount=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>THÊM VÀO GIỎ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        @*<a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>*@
+                    </div>
+                </div><!--/recommended_items-->
+            </div>
+        </div>
+    </div>
+</section>
+
